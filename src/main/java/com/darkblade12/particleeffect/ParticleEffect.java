@@ -1404,10 +1404,10 @@ public enum ParticleEffect {
 			}
 			try {
 				version = Integer.parseInt(Character.toString(PackageType.getServerVersion().charAt(3)));
-				if (version > 7) {
+				if (version > 7 || version <= 1) {
 					enumParticle = PackageType.MINECRAFT_SERVER.getClass("EnumParticle");
 				}
-				Class<?> packetClass = PackageType.MINECRAFT_SERVER.getClass(version < 7 ? "Packet63WorldParticles" : "PacketPlayOutWorldParticles");
+				Class<?> packetClass = PackageType.MINECRAFT_SERVER.getClass(version < 7  && version > 1 ? "Packet63WorldParticles" : "PacketPlayOutWorldParticles");
 				packetConstructor = ReflectionUtils.getConstructor(packetClass);
 				getHandle = ReflectionUtils.getMethod("CraftPlayer", PackageType.CRAFTBUKKIT_ENTITY, "getHandle");
 				playerConnection = ReflectionUtils.getField("EntityPlayer", PackageType.MINECRAFT_SERVER, false, "playerConnection");
@@ -1452,7 +1452,7 @@ public enum ParticleEffect {
 			}
 			try {
 				packet = packetConstructor.newInstance();
-				if (version < 8) {
+				if (version < 8 && version > 1) {
 					String name = effect.getName();
 					if (data != null) {
 						name += data.getPacketDataString();
