@@ -380,7 +380,7 @@ public final class ReflectionUtils {
 		 * 
 		 * @param path Path of the package
 		 */
-		private PackageType(String path) {
+		PackageType(String path) {
 			this.path = path;
 		}
 
@@ -390,7 +390,7 @@ public final class ReflectionUtils {
 		 * @param parent Parent package of the package
 		 * @param path Path of the package
 		 */
-		private PackageType(PackageType parent, String path) {
+		PackageType(PackageType parent, String path) {
 			this(parent + "." + path);
 		}
 
@@ -466,7 +466,7 @@ public final class ReflectionUtils {
 		 * @param primitive Primitive class of this data type
 		 * @param reference Reference class of this data type
 		 */
-		private DataType(Class<?> primitive, Class<?> reference) {
+		DataType(Class<?> primitive, Class<?> reference) {
 			this.primitive = primitive;
 			this.reference = reference;
 		}
@@ -554,7 +554,7 @@ public final class ReflectionUtils {
 		/**
 		 * Returns the primitive class array of the given object array
 		 * 
-		 * @param object Given object array
+		 * @param objects Given object array
 		 * @return The primitive class array
 		 */
 		public static Class<?>[] getPrimitive(Object[] objects) {
@@ -569,7 +569,7 @@ public final class ReflectionUtils {
 		/**
 		 * Returns the reference class array of the given object array
 		 * 
-		 * @param object Given object array
+		 * @param objects Given object array
 		 * @return The reference class array
 		 */
 		public static Class<?>[] getReference(Object[] objects) {

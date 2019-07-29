@@ -406,7 +406,7 @@ public enum ParticleEffect {
 	 * @param requiredVersion Version which is required (1.x)
 	 * @param properties Properties of this particle effect
 	 */
-	private ParticleEffect(String name, int id, int requiredVersion, ParticleProperty... properties) {
+	ParticleEffect(String name, int id, int requiredVersion, ParticleProperty... properties) {
 		this.name = name;
 		this.id = id;
 		this.requiredVersion = requiredVersion;
@@ -501,7 +501,7 @@ public enum ParticleEffect {
 	 */
 	private static boolean isWater(Location location) {
 		Material material = location.getBlock().getType();
-		return material == Material.WATER || material == Material.STATIONARY_WATER;
+		return material == Material.WATER;
 	}
 
 	/**
@@ -910,7 +910,7 @@ public enum ParticleEffect {
 	 * @author DarkBlade12
 	 * @since 1.7
 	 */
-	public static enum ParticleProperty {
+	public enum ParticleProperty {
 		/**
 		 * The particle effect requires water to be displayed
 		 */
@@ -937,7 +937,7 @@ public enum ParticleEffect {
 	 * @author DarkBlade12
 	 * @since 1.6
 	 */
-	public static abstract class ParticleData {
+	public abstract static class ParticleData {
 		private final Material material;
 		private final byte data;
 		private final int[] packetData;
@@ -1370,7 +1370,7 @@ public enum ParticleEffect {
 		 * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
 		 * @param data Data of the effect
 		 * @throws IllegalArgumentException If the speed is lower than 0
-		 * @see #ParticleEffect(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
+		 * @see #ParticlePacket(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
 		 */
 		public ParticlePacket(ParticleEffect effect, Vector direction, float speed, boolean longDistance, ParticleData data) throws IllegalArgumentException {
 			this(effect, (float) direction.getX(), (float) direction.getY(), (float) direction.getZ(), speed, 0, longDistance, data);
@@ -1382,7 +1382,7 @@ public enum ParticleEffect {
 		 * @param effect Particle effect
 		 * @param color Color of the particle
 		 * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
-		 * @see #ParticleEffect(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
+		 * @see #ParticlePacket(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
 		 */
 		public ParticlePacket(ParticleEffect effect, ParticleColor color, boolean longDistance) {
 			this(effect, color.getValueX(), color.getValueY(), color.getValueZ(), 1, 0, longDistance, null);
