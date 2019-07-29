@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.darkblade12</groupId>
     <artifactId>particleeffect</artifactId>
-    <version>1.7.0-1.14.4-SNAPSHOT</version>
+    <version>1.7.0-1.14.4</version>
     <name>ParticleEffect</name>
     <description>Particle effect library for Bukkit/Spigot</description>
 
