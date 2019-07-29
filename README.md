@@ -3,7 +3,7 @@ ParticleEffect [![](https://jitpack.io/v/sarhatabaot/ParticleEffect.svg)](https:
 
 This a library which allows you to display particle effects with Bukkit/Spigot. See http://bukkit.org/threads/1-8-particleeffect-v1-6.154406/ for more information about this project!
 
-Documentation here: http://ci.sinndevelopment.com/job/ParticleEffect%20Library/javadoc/
+Documentation here: https://javadoc.jitpack.io/com/github/sarhatabaot/ParticleEffect/1.7.0-1.14.4/javadoc/
 
 ## Maven Dependency Information:
 ```xml
