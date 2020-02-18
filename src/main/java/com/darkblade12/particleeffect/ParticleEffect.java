@@ -381,7 +381,43 @@ public enum ParticleEffect {
 	 * <li>The offset values have no influence on this particle effect
 	 * </ul>
 	 */
-	MOB_APPEARANCE("mobappearance", 41, 8);
+	MOB_APPEARANCE("mobappearance", 41, 8),
+	/**
+	 * A particle effect which is displayed by ender dragon:
+	 * <ul>
+	 * <li>It looks like witch spell
+	 * <li>The speed value has no influence on this particle effect
+	 * <li>The offset values have no influence on this particle effect
+	 * </ul>
+	 */
+	DRAGON_BREATH("dragonbreath", 42, 9),
+	/**
+	 * A particle effect which is displayed by skulker bullets and end rods:
+	 * <ul>
+	 * <li>It looks like slow falling snow
+	 * <li>The speed value has no influence on this particle effect
+	 * <li>The offset values have no influence on this particle effect
+	 * </ul>
+	 */
+	END_ROD("endRod", 43, 9),
+	/**
+	 * A particle effect which is displayed by mobs when damaged:
+	 * <ul>
+	 * <li>It looks like small hearts
+	 * <li>The speed value has no influence on this particle effect
+	 * <li>The offset values have no influence on this particle effect
+	 * </ul>
+	 */
+	DAMAGE_INDICATOR("damageIndicator", 44, 9),
+	/**
+	 * A particle effect which is displayed by swinging a sword:
+	 * <ul>
+	 * <li>It looks like a sword being swung
+	 * <li>The speed value has no influence on this particle effect
+	 * <li>The offset values have no influence on this particle effect
+	 * </ul>
+	 */
+	SWEEP_ATTACK("sweepAttack", 45, 9);
 
 	private static final Map<String, ParticleEffect> NAME_MAP = new HashMap<String, ParticleEffect>();
 	private static final Map<Integer, ParticleEffect> ID_MAP = new HashMap<Integer, ParticleEffect>();
@@ -910,7 +946,7 @@ public enum ParticleEffect {
 	 * @author DarkBlade12
 	 * @since 1.7
 	 */
-	public enum ParticleProperty {
+	public static enum ParticleProperty {
 		/**
 		 * The particle effect requires water to be displayed
 		 */
@@ -937,7 +973,7 @@ public enum ParticleEffect {
 	 * @author DarkBlade12
 	 * @since 1.6
 	 */
-	public abstract static class ParticleData {
+	public static abstract class ParticleData {
 		private final Material material;
 		private final byte data;
 		private final int[] packetData;
@@ -1370,7 +1406,7 @@ public enum ParticleEffect {
 		 * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
 		 * @param data Data of the effect
 		 * @throws IllegalArgumentException If the speed is lower than 0
-		 * @see #ParticlePacket(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
+		 * @see #ParticleEffect(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
 		 */
 		public ParticlePacket(ParticleEffect effect, Vector direction, float speed, boolean longDistance, ParticleData data) throws IllegalArgumentException {
 			this(effect, (float) direction.getX(), (float) direction.getY(), (float) direction.getZ(), speed, 0, longDistance, data);
@@ -1382,7 +1418,7 @@ public enum ParticleEffect {
 		 * @param effect Particle effect
 		 * @param color Color of the particle
 		 * @param longDistance Indicates whether the maximum distance is increased from 256 to 65536
-		 * @see #ParticlePacket(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
+		 * @see #ParticleEffect(ParticleEffect, float, float, float, float, int, boolean, ParticleData)
 		 */
 		public ParticlePacket(ParticleEffect effect, ParticleColor color, boolean longDistance) {
 			this(effect, color.getValueX(), color.getValueY(), color.getValueZ(), 1, 0, longDistance, null);
@@ -1403,7 +1439,7 @@ public enum ParticleEffect {
 				return;
 			}
 			try {
-				version = Integer.parseInt(Character.toString(PackageType.getServerVersion().charAt(3)));
+				version = Integer.parseInt(PackageType.getServerVersion().split("_")[1]);
 				if (version > 7 || version <= 1) {
 					enumParticle = PackageType.MINECRAFT_SERVER.getClass("EnumParticle");
 				}
@@ -1452,7 +1488,7 @@ public enum ParticleEffect {
 			}
 			try {
 				packet = packetConstructor.newInstance();
-				if (version < 8 && version > 1) {
+				if (version < 8) {
 					String name = effect.getName();
 					if (data != null) {
 						name += data.getPacketDataString();
