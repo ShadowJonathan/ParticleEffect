@@ -1,9 +1,9 @@
-ParticleEffect [![](https://jitpack.io/v/sarhatabaot/ParticleEffect.svg)](https://jitpack.io/#sarhatabaot/ParticleEffect)
+ParticleEffect [![](https://jitpack.io/v/shadowjonathan/ParticleEffect.svg)](https://jitpack.io/#shadowjonathan/ParticleEffect)
 ==============
 
 This a library which allows you to display particle effects with Bukkit/Spigot. See http://bukkit.org/threads/1-8-particleeffect-v1-6.154406/ for more information about this project!
 
-Documentation here: https://javadoc.jitpack.io/com/github/sarhatabaot/ParticleEffect/1.7.0-1.14.4/javadoc/
+Documentation here: https://javadoc.jitpack.io/com/github/shadowjonathan/ParticleEffect/1.7.1/javadoc/
 
 ## Maven Dependency Information:
 ```xml
