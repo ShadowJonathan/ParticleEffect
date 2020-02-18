@@ -14,9 +14,9 @@ Documentation here: https://javadoc.jitpack.io/com/github/sarhatabaot/ParticleEf
 ```
 ```xml        
 <dependency>
-	<groupId>com.github.sarhatabaot</groupId>
+	<groupId>com.github.shadowjonathan</groupId>
 	<artifactId>ParticleEffect</artifactId>
-	<version>1.7.0-1.14.4</version>
+	<version>1.7.1</version>
 </dependency>
 ```
 ```xml      
